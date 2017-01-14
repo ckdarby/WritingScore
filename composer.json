@@ -1,0 +1,36 @@
+{
+  "name": "ckdarby/writingscore",
+  "description": "WritingScore is a simple package that scores text.",
+  "keywords": [
+    "Filter", "Score", "Document", "Words"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Cory Darby",
+      "email": "ckdarby@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Ckdarby\\WritingScore\\": "./src"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [ "tests" ]
+  },
+  "homepage": "https://github.com/ckdarby/WritingScore",
+  "support": {
+    "issues": "https://github.com/ckdarby/WritingScore/issues",
+    "source": "https://github.com/ckdarby/WritingScore"
+  },
+  "require": {
+    "php": ">=7.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~5.0",
+    "squizlabs/php_codesniffer": "~2.0"
+  }
+}

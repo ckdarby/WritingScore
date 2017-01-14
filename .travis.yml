@@ -1,0 +1,19 @@
+language: php
+
+php:
+  - 7.0
+
+matrix:
+  fast_finish: true
+
+before_script:
+  - composer self-update
+  - composer install
+
+script:
+ - ./vendor/bin/phpunit --coverage-clover=coverage.clover
+ - ./vendor/bin/phpcs --standard=PSR2 src/ tests/
+
+after_script:
+ - sh -c 'wget https://scrutinizer-ci.com/ocular.phar;'
+ - sh -c 'php ocular.phar code-coverage:upload --format=php-clover coverage.clover;'
