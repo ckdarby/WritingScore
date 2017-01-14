@@ -6,13 +6,12 @@ namespace Ckdarby\WritingScore\Marker;
  * Class OffensivePhrase
  * @package Ckdarby\WritingScore\Marker
  */
-class OffensivePhrase implements MarkerInterface {
-
-
-    CONST LOW_OFFENSIVE_MULTIPLIER = 1;
-    CONST HIGH_OFFENSIVE_MULTIPLIER = 2;
-    CONST LOW_OFFENSIVE = 'low';
-    CONST HIGH_OFFENSIVE = 'high';
+class OffensivePhrase implements MarkerInterface
+{
+    const LOW_OFFENSIVE_MULTIPLIER = 1;
+    const HIGH_OFFENSIVE_MULTIPLIER = 2;
+    const LOW_OFFENSIVE = 'low';
+    const HIGH_OFFENSIVE = 'high';
 
 
     public $totalFoundLowOffensivePhrases = 0;
@@ -67,12 +66,14 @@ class OffensivePhrase implements MarkerInterface {
 
         //No phrases are found at all. Quick return.
         $checkForMatches = preg_match_all($regexPattern, $content, $regexMatches);
-        if($checkForMatches === 0 || $checkForMatches === FALSE) {
+        if ($checkForMatches === 0 || $checkForMatches === false) {
+
             return $this;
         }
 
         $regexMatches = $regexMatches[0];
-        foreach($regexMatches as $match) {
+
+        foreach ($regexMatches as $match) {
 
             //Preference, like to avoid using 'magical' 0 array index without being verbose with what it is.
             $matchedPhrase = $match;
@@ -93,7 +94,6 @@ class OffensivePhrase implements MarkerInterface {
         }
 
         return $this;
-
     }
 
     /**
@@ -102,7 +102,8 @@ class OffensivePhrase implements MarkerInterface {
      * @param $Phrases
      * @return string
      */
-    private function regexPattern($Phrases) {
+    private function regexPattern($Phrases)
+    {
         return sprintf(
             '/(%s)/',
             implode("|", array_keys($Phrases))
@@ -138,13 +139,14 @@ class OffensivePhrase implements MarkerInterface {
      */
     public function getContent()
     {
-       return $this->content;
+        return $this->content;
     }
 
     /**
      * @return array
      */
-    public function getAllOffensivePhrases(){
+    public function getAllOffensivePhrases()
+    {
         return $this->allOffensivePhrases;
     }
 }

@@ -2,7 +2,6 @@
 
 use Ckdarby\WritingScore\Marker\OffensivePhrase;
 
-
 /**
  * Class OffensivePhraseTest
  * @package Ckdarby\WritingScoreTest
@@ -49,7 +48,8 @@ class OffensivePhraseTest extends \PHPUnit_Framework_TestCase
      * @dataProvider providerSetOffensivePhrases()
      * @return void
      */
-    public function testSetOffensivePhrases($expected, $content, $lowOffensiveWords, $highOffensiveWords) {
+    public function testSetOffensivePhrases($expected, $content, $lowOffensiveWords, $highOffensiveWords)
+    {
         $marker = new OffensivePhrase($content);
 
         $this->assertEquals(
@@ -92,7 +92,8 @@ class OffensivePhraseTest extends \PHPUnit_Framework_TestCase
      * @param $expected
      * @param $content
      */
-    public function testRun($expected, $content) {
+    public function testRun($expected, $content)
+    {
         $marker = new OffensivePhrase($content);
         $marker->setOffensivePhrases($this->templateLowOffensiveWords(), $this->templateHighOffensive());
         $marker->run();
@@ -133,7 +134,8 @@ class OffensivePhraseTest extends \PHPUnit_Framework_TestCase
      * @param $lowOffensiveCount
      * @param $highOffensiveCount
      */
-    public function testGetScore($expected, $lowOffensiveCount, $highOffensiveCount) {
+    public function testGetScore($expected, $lowOffensiveCount, $highOffensiveCount)
+    {
         $marker = new OffensivePhrase("");
         $marker->totalFoundHighOffensivePhrases = $lowOffensiveCount;
         $marker->totalFoundLowOffensivePhrases = $highOffensiveCount;
@@ -167,7 +169,5 @@ class OffensivePhraseTest extends \PHPUnit_Framework_TestCase
             ],
         ];
     }
-
-
 
 }
