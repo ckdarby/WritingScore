@@ -1,5 +1,7 @@
 <?php
 
+namespace Ckdarby\WritingScore\Tests;
+
 use Ckdarby\WritingScore\Marker\OffensivePhrase;
 
 /**
@@ -169,5 +171,4 @@ class OffensivePhraseTest extends \PHPUnit_Framework_TestCase
             ],
         ];
     }
-
 }

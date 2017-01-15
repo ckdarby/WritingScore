@@ -15,11 +15,9 @@
   ],
   "autoload": {
     "psr-4": {
-      "Ckdarby\\WritingScore\\": "./src"
+      "Ckdarby\\WritingScore\\": "./src",
+      "Ckdarby\\WritingScore\\Tests\\": "./tests"
     }
-  },
-  "autoload-dev": {
-    "classmap": [ "tests" ]
   },
   "homepage": "https://github.com/ckdarby/WritingScore",
   "support": {

@@ -33,7 +33,7 @@ class OffensivePhrase implements MarkerInterface
      * OffensivePhrase constructor.
      * @param $content
      */
-    public function __construct($content)
+    public function __construct($content = '')
     {
         $this->content = $content;
     }
@@ -67,14 +67,12 @@ class OffensivePhrase implements MarkerInterface
         //No phrases are found at all. Quick return.
         $checkForMatches = preg_match_all($regexPattern, $content, $regexMatches);
         if ($checkForMatches === 0 || $checkForMatches === false) {
-
             return $this;
         }
 
         $regexMatches = $regexMatches[0];
 
         foreach ($regexMatches as $match) {
-
             //Preference, like to avoid using 'magical' 0 array index without being verbose with what it is.
             $matchedPhrase = $match;
 
