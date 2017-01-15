@@ -6,6 +6,10 @@ namespace Ckdarby\WritingScore\Marker;
  * Class OffensivePhrase
  * @package Ckdarby\WritingScore\Marker
  */
+/**
+ * Class OffensivePhrase
+ * @package Ckdarby\WritingScore\Marker
+ */
 class OffensivePhrase implements MarkerInterface
 {
     const LOW_OFFENSIVE_MULTIPLIER = 1;
@@ -120,6 +124,20 @@ class OffensivePhrase implements MarkerInterface
             ) + (
                 $this->totalFoundHighOffensivePhrases * self::HIGH_OFFENSIVE_MULTIPLIER
             );
+    }
+
+    /**
+     * Used to drop prior state
+     *
+     * @return $this
+     */
+    public function reset()
+    {
+        $this->content = '';
+        $this->totalFoundLowOffensivePhrases = 0;
+        $this->totalFoundHighOffensivePhrases = 0;
+
+        return $this;
     }
 
     /**
